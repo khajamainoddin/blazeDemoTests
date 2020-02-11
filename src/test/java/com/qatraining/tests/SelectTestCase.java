@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,12 +25,9 @@ public class SelectTestCase {
 	
 	@Test
 	public void faceBookPostTest() throws Exception {
-		WebDriverManager.chromedriver().setup();
-		Map<String, Object> prefs = new HashMap<String, Object>();
-		prefs.put("profile.default_content_setting_values.notifications", 2);
-		ChromeOptions options = new ChromeOptions();
-		options.setExperimentalOption("prefs", prefs);
-		driver = new ChromeDriver(options);
+		WebDriverManager.firefoxdriver().setup();
+		
+		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 
 		// Opening the browser
